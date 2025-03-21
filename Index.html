@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- WhatsApp Preview Metadata -->
+    <meta property="og:title" content="🎉 It's Johnson's Birthday!">
+    <meta property="og:description" content="Tap to see something amazing! 🎂">
+    <meta property="og:image" content="https://your-image-link.jpg">
+    <meta property="og:url" content="https://your-username.github.io/birthday-site/">
+
+    <title>Happy Birthday Johnson 🎂</title>
+    
+    <style>
+        body {
+            text-align: center;
+            background: linear-gradient(45deg, #ff4e50, #f9d423);
+            color: white;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+        button {
+            background: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #ddd;
+        }
+        .hidden {
+            display: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎉 Hey, It's My Birthday! 🎂</h1>
+    <button id="revealButton">Tap for a Surprise! 🎁</button>
+    <div id="surprise" class="hidden">
+        <h2>🥳 Thank you for celebrating with me! 🎊</h2>
+        <p>Drop your wishes in my WhatsApp! 💬</p>
+        <a href="https://wa.me/your-number" target="_blank">
+            <button>Wish Me on WhatsApp! 💬</button>
+        </a>
+    </div>
+
+    <script>
+        function createConfetti() {
+            const count = 100;
+            for (let i = 0; i < count; i++) {
+                let confetti = document.createElement("div");
+                confetti.style.position = "absolute";
+                confetti.style.width = "10px";
+                confetti.style.height = "10px";
+                confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confetti.style.top = `${Math.random() * window.innerHeight}px`;
+                confetti.style.left = `${Math.random() * window.innerWidth}px`;
+                confetti.style.opacity = Math.random();
+                confetti.style.borderRadius = "50%";
+                document.body.appendChild(confetti);
+
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+
+        document.getElementById("revealButton").addEventListener("click", () => {
+            document.getElementById("surprise").classList.remove("hidden");
+            createConfetti();
+        });
+    </script>
+
+</body>
+</html>
